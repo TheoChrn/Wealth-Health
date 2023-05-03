@@ -1,0 +1,321 @@
+{
+  "states": [
+    {
+      "label": "Alabama",
+      "abbreviation": "AL",
+      "name": "state"
+    },
+    {
+      "label": "Alaska",
+      "abbreviation": "AK",
+      "name": "state"
+    },
+    {
+      "label": "American Samoa",
+      "abbreviation": "AS",
+      "name": "state"
+    },
+    {
+      "label": "Arizona",
+      "abbreviation": "AZ",
+      "name": "state"
+    },
+    {
+      "label": "Arkansas",
+      "abbreviation": "AR",
+      "name": "state"
+    },
+    {
+      "label": "California",
+      "abbreviation": "CA",
+      "name": "state"
+    },
+    {
+      "label": "Colorado",
+      "abbreviation": "CO",
+      "name": "state"
+    },
+    {
+      "label": "Connecticut",
+      "abbreviation": "CT",
+      "name": "state"
+    },
+    {
+      "label": "Delaware",
+      "abbreviation": "DE",
+      "name": "state"
+    },
+    {
+      "label": "District Of Columbia",
+      "abbreviation": "DC",
+      "name": "state"
+    },
+    {
+      "label": "Federated States Of Micronesia",
+      "abbreviation": "FM",
+      "name": "state"
+    },
+    {
+      "label": "Florida",
+      "abbreviation": "FL",
+      "name": "state"
+    },
+    {
+      "label": "Georgia",
+      "abbreviation": "GA",
+      "name": "state"
+    },
+    {
+      "label": "Guam",
+      "abbreviation": "GU",
+      "name": "state"
+    },
+    {
+      "label": "Hawaii",
+      "abbreviation": "HI",
+      "name": "state"
+    },
+    {
+      "label": "Idaho",
+      "abbreviation": "ID",
+      "name": "state"
+    },
+    {
+      "label": "Illinois",
+      "abbreviation": "IL",
+      "name": "state"
+    },
+    {
+      "label": "Indiana",
+      "abbreviation": "IN",
+      "name": "state"
+    },
+    {
+      "label": "Iowa",
+      "abbreviation": "IA",
+      "name": "state"
+    },
+    {
+      "label": "Kansas",
+      "abbreviation": "KS",
+      "name": "state"
+    },
+    {
+      "label": "Kentucky",
+      "abbreviation": "KY",
+      "name": "state"
+    },
+    {
+      "label": "Louisiana",
+      "abbreviation": "LA",
+      "name": "state"
+    },
+    {
+      "label": "Maine",
+      "abbreviation": "ME",
+      "name": "state"
+    },
+    {
+      "label": "Marshall Islands",
+      "abbreviation": "MH",
+      "name": "state"
+    },
+    {
+      "label": "Maryland",
+      "abbreviation": "MD",
+      "name": "state"
+    },
+    {
+      "label": "Massachusetts",
+      "abbreviation": "MA",
+      "name": "state"
+    },
+    {
+      "label": "Michigan",
+      "abbreviation": "MI",
+      "name": "state"
+    },
+    {
+      "label": "Minnesota",
+      "abbreviation": "MN",
+      "name": "state"
+    },
+    {
+      "label": "Mississippi",
+      "abbreviation": "MS",
+      "name": "state"
+    },
+    {
+      "label": "Missouri",
+      "abbreviation": "MO",
+      "name": "state"
+    },
+    {
+      "label": "Montana",
+      "abbreviation": "MT",
+      "name": "state"
+    },
+    {
+      "label": "Nebraska",
+      "abbreviation": "NE",
+      "name": "state"
+    },
+    {
+      "label": "Nevada",
+      "abbreviation": "NV",
+      "name": "state"
+    },
+    {
+      "label": "New Hampshire",
+      "abbreviation": "NH",
+      "name": "state"
+    },
+    {
+      "label": "New Jersey",
+      "abbreviation": "NJ",
+      "name": "state"
+    },
+    {
+      "label": "New Mexico",
+      "abbreviation": "NM",
+      "name": "state"
+    },
+    {
+      "label": "New York",
+      "abbreviation": "NY",
+      "name": "state"
+    },
+    {
+      "label": "North Carolina",
+      "abbreviation": "NC",
+      "name": "state"
+    },
+    {
+      "label": "North Dakota",
+      "abbreviation": "ND",
+      "name": "state"
+    },
+    {
+      "label": "Northern Mariana Islands",
+      "abbreviation": "MP",
+      "name": "state"
+    },
+    {
+      "label": "Ohio",
+      "abbreviation": "OH",
+      "name": "state"
+    },
+    {
+      "label": "Oklahoma",
+      "abbreviation": "OK",
+      "name": "state"
+    },
+    {
+      "label": "Oregon",
+      "abbreviation": "OR",
+      "name": "state"
+    },
+    {
+      "label": "Palau",
+      "abbreviation": "PW",
+      "name": "state"
+    },
+    {
+      "label": "Pennsylvania",
+      "abbreviation": "PA",
+      "name": "state"
+    },
+    {
+      "label": "Puerto Rico",
+      "abbreviation": "PR",
+      "name": "state"
+    },
+    {
+      "label": "Rhode Island",
+      "abbreviation": "RI",
+      "name": "state"
+    },
+    {
+      "label": "South Carolina",
+      "abbreviation": "SC",
+      "name": "state"
+    },
+    {
+      "label": "South Dakota",
+      "abbreviation": "SD",
+      "name": "state"
+    },
+    {
+      "label": "Tennessee",
+      "abbreviation": "TN",
+      "name": "state"
+    },
+    {
+      "label": "Texas",
+      "abbreviation": "TX",
+      "name": "state"
+    },
+    {
+      "label": "Utah",
+      "abbreviation": "UT",
+      "name": "state"
+    },
+    {
+      "label": "Vermont",
+      "abbreviation": "VT",
+      "name": "state"
+    },
+    {
+      "label": "Virgin Islands",
+      "abbreviation": "VI",
+      "name": "state"
+    },
+    {
+      "label": "Virginia",
+      "abbreviation": "VA",
+      "name": "state"
+    },
+    {
+      "label": "Washington",
+      "abbreviation": "WA",
+      "name": "state"
+    },
+    {
+      "label": "West Virginia",
+      "abbreviation": "WV",
+      "name": "state"
+    },
+    {
+      "label": "Wisconsin",
+      "abbreviation": "WI",
+      "name": "state"
+    },
+    {
+      "label": "Wyoming",
+      "abbreviation": "WY",
+      "name": "state"
+    }
+  ],
+  "departments": [
+    {
+      "label": "Sales",
+      "name": "department"
+    },
+    {
+      "label": "Marketing",
+      "name": "department"
+    },
+    {
+      "label": "Engineering",
+      "name": "department"
+    },
+    {
+      "label": "Human Resources",
+      "name": "department"
+    },
+    {
+      "label": "Legal",
+      "name": "department"
+    }
+  ]
+}

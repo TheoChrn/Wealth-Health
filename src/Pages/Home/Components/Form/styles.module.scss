@@ -1,0 +1,40 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  border: solid 2px rgb(9, 202, 9);
+  box-shadow: 0px 0px 5px rgb(11, 182, 11);
+  padding: 20px;
+
+  .address,
+  .departmentSelect,
+  .sumbitBtn {
+    grid-column: 1 / span 2;
+  }
+
+  & .inputContainer label {
+    width: 100%;
+    text-align: start;
+  }
+
+  input {
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    //border: solid 2px black;
+    background-color: rgba(192, 192, 192, 0.14);
+  }
+
+  .address {
+    border: solid 2px rgba(241, 241, 241, 0.852);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  & button {
+    margin: auto;
+    grid-column: 1 / span 2;
+    width: 100px;
+  }
+}
