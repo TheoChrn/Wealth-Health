@@ -13,9 +13,9 @@ import {
 import { useSelector } from "react-redux";
 
 const Employee = () => {
-  const employees = useSelector((state) => state.employees.employeesData);
-  const data = Object.values(employees).map((value) => value.employeeData);
+  const data = useSelector((state) => state.employees.employeesData);
   console.log(data);
+  
   const headCells = [
     { id: "firstName", label: "First Name" },
     { id: "lastName", label: "Last Name" },
@@ -82,7 +82,10 @@ const Employee = () => {
         </TableHead>
         <TableBody>
           {sortedData.map((data, index) => {
+            console.log(data);
             const { id, ...rowData } = data;
+            console.log(data);
+            console.log(id);
             return (
               <TableRow key={index}>
                 {Object.keys(rowData).map((key) => (

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 import styles from "./styles.module.scss";
 import mockedData from "../../../../API/mockedData/data.json";
-import Modal from "../Modal";
 import CustomDatePicker from "../DatePicker";
 import CustomSelect from "../Select";
 import { setEmployeesData } from "../../../../features/employees.slice";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import Employee from "../../../Employee";
+//import Modal from "../Modal/index";
+import { Modal } from "volturuss-hrnet-react-modal";
 
 const Form = () => {
   const states = mockedData.states;
   const departments = mockedData.departments;
   const [hasError, setHasError] = useState();
-  const [displayModal, setDisplayModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState(true);
   const dispatch = useDispatch();
   const todayDate = new Date();
   const selectedBirthDate = new Date(
@@ -38,12 +38,43 @@ const Form = () => {
     abbreviation: "",
   });
 
-  const { firstName, lastName, street, city, zipCode, dateOfBirth, startDate } =
-    formData;
+  const {
+    firstName,
+    lastName,
+    startDate,
+    department,
+    dateOfBirth,
+    street,
+    city,
+    state,
+    zipCode,
+    abbreviation,
+  } = formData;
 
   class Employee {
-    constructor(employeeData) {
-      this.employeeData = employeeData;
+    constructor({
+      firstName,
+      lastName,
+      startDate,
+      department,
+      dateOfBirth,
+      street,
+      city,
+      state,
+      zipCode,
+      abbreviation,
+    }) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.startDate = startDate;
+      this.department = department;
+      this.dateOfBirth = dateOfBirth;
+      this.street = street;
+      this.city = city;
+      this.state = state;
+      this.zipCode = zipCode;
+      this.abbreviation = abbreviation;
+      this.id = uuidv4();
     }
   }
 
@@ -89,7 +120,6 @@ const Form = () => {
       ...(abbreviation && {
         abbreviation: abbreviation.replace(replaceNumbers, ""),
       }),
-      id: prevState.id || uuidv4(),
     }));
   };
 
@@ -116,7 +146,22 @@ const Form = () => {
     e.preventDefault();
     const isValid = isFormDataValid();
     if (isValid) {
-      dispatch(setEmployeesData(new Employee(formData)));
+      dispatch(
+        setEmployeesData(
+          new Employee({
+            firstName,
+            lastName,
+            startDate,
+            department,
+            dateOfBirth,
+            street,
+            city,
+            state,
+            zipCode,
+            abbreviation,
+          })
+        )
+      );
       reset();
       setDisplayModal(true);
     } else {
@@ -221,12 +266,8 @@ const Form = () => {
       <button type="submit" className={styles.sumbitBtn}>
         Save
       </button>
-
       <Modal onClose={closeModal} display={displayModal}>
-        <figure>
-          <img src="" alt="" />
-        </figure>
-        <h1>Nouvel employée créé 😁</h1>
+        <p>Employee created!</p>
       </Modal>
     </form>
   );

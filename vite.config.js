@@ -1,7 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
-export default defineConfig({
+export default {
   plugins: [react()],
-})
+  build: {
+    commonjsOptions: {
+       esmExternals: true 
+    },
+ },
+ rollupOptions: {
+  external: ['react', 'react-dom'],
+  output: {
+    globals: {
+      react: 'React',
+    },
+  },
+},
+
+}
+
