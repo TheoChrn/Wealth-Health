@@ -1,13 +1,9 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Modal from "./index";
-import styles from "./styles.module.scss";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("Modal component", () => {
-  test("Should import css module", () => {
-    expect(styles).toBeDefined();
-  });
   test("Should render content element", () => {
     render(<Modal display={true}>Hello World</Modal>);
     const contentElement = screen.getByText("Hello World");

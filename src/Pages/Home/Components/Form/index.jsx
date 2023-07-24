@@ -6,7 +6,6 @@ import CustomSelect from "../Select";
 import { setEmployeesData } from "../../../../features/employees.slice";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import Employee from "../../../Employee";
 //import Modal from "../Modal/index";
 import { Modal } from "volturuss-hrnet-react-modal";
 
@@ -14,7 +13,7 @@ const Form = () => {
   const states = mockedData.states;
   const departments = mockedData.departments;
   const [hasError, setHasError] = useState();
-  const [displayModal, setDisplayModal] = useState(true);
+  const [displayModal, setDisplayModal] = useState(false);
   const dispatch = useDispatch();
   const todayDate = new Date();
   const selectedBirthDate = new Date(
@@ -162,8 +161,8 @@ const Form = () => {
           })
         )
       );
-      reset();
       setDisplayModal(true);
+      reset();
     } else {
       console.log(formData);
       console.log("Impossible d'envoyer tous les champs ne sont pas remplis");
@@ -244,7 +243,11 @@ const Form = () => {
 
         <div className={styles.inputContainer}>
           <label htmlFor="state">State</label>
-          <CustomSelect options={states} onChange={onChange} />
+          <CustomSelect
+            options={states}
+            onChange={onChange}
+            placeHolder={"Select a State"}
+          />
         </div>
 
         <div className={styles.inputContainer}>
@@ -261,13 +264,26 @@ const Form = () => {
       </fieldset>
       <div className={`${styles.inputContainer} ${styles.departmentSelect}`}>
         <label htmlFor="department">Department</label>
-        <CustomSelect options={departments} onChange={onChange} />
+        <CustomSelect
+          options={departments}
+          onChange={onChange}
+          placeHolder={"Select a department"}
+        />
       </div>
       <button type="submit" className={styles.sumbitBtn}>
         Save
       </button>
-      <Modal onClose={closeModal} display={displayModal}>
-        <p>Employee created!</p>
+      <Modal
+        onClose={closeModal}
+        display={displayModal}
+        containerClassName={styles.modalContainer}
+        modalClassName={styles.modal}
+        closeButtonClassName={styles.closeModalBtn}
+        btnIcon={<>&#10004;</>}
+        className={styles.modalContent}
+      >
+        <h1>HRnet</h1>
+        <p>Employee created !</p>
       </Modal>
     </form>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import Select from "react-select";
 
-const CustomSelect = ({ options, onChange }) => {
+const CustomSelect = ({ options, onChange, placeHolder }) => {
   return (
     <Select
       options={options}
-      placeholder={options[0].label}
-      defaultValue={options}
+      placeholder={placeHolder}
+      defaultValue={placeHolder}
       onChange={onChange}
       styles={{
         control: (baseStyles, state) => ({

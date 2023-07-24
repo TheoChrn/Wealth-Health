@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { getMonth, getYear } from "date-fns";
 import styles from "./styles.module.scss";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CustomDatePicker = ({ value, selectedDate, onChange, currentYear }) => {
   const RenderCustomHeader = ({
@@ -36,7 +37,7 @@ const CustomDatePicker = ({ value, selectedDate, onChange, currentYear }) => {
           type="button"
           disabled={prevMonthButtonDisabled}
         >
-          {"<<"}
+          {"<"}
         </button>
         <select
           value={getYear(date)}
