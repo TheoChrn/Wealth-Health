@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Table,
+  TableBody,
+  TableCell,
   TableHead,
   TableRow,
-  TableCell,
-  TableBody,
   TableSortLabel,
   TablePagination,
   TableFooter,
 } from "@mui/material";
 import { useSelector } from "react-redux";
+import styles from "./styles.module.scss";
 
 const Employee = () => {
-  const employees = useSelector((state) => state.employees.employeesData);
-  const data = Object.values(employees).map((value) => value.employeeData);
+  const data = useSelector((state) => state.employees.employeesData);
   console.log(data);
+
   const headCells = [
     { id: "firstName", label: "First Name" },
     { id: "lastName", label: "Last Name" },
@@ -59,7 +60,7 @@ const Employee = () => {
     return 0;
   });
   return (
-    <div id="employee-div" className="container">
+    <div id="employee-div" className={styles.container}>
       <h1>Current Employees</h1>
       <Table>
         <TableHead>
@@ -82,7 +83,10 @@ const Employee = () => {
         </TableHead>
         <TableBody>
           {sortedData.map((data, index) => {
+            console.log(data);
             const { id, ...rowData } = data;
+            console.log(data);
+            console.log(id);
             return (
               <TableRow key={index}>
                 {Object.keys(rowData).map((key) => (
@@ -105,7 +109,9 @@ const Employee = () => {
           </TableRow>
         </TableFooter>
       </Table>
-      <NavLink to="/">Home</NavLink>
+      <button>
+        <NavLink to="/">Home</NavLink>
+      </button>
     </div>
   );
 };

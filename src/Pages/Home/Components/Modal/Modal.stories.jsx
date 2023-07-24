@@ -16,18 +16,12 @@ export const Visible = Template.bind({});
 Visible.args = {
   display: true,
   children: <p>Modal content goes here</p>,
-  /*onClose: () => {
-    Visible.args.display = false;
-  },*/
 };
 
 export const Hidden = Template.bind({});
 Hidden.args = {
   display: false,
   children: <p>Modal content goes here</p>,
-  /*onClose: () => {
-    Hidden.args.display = false;
-  },*/
 };
 
 export const CustomContent = Template.bind({});
@@ -39,7 +33,4 @@ CustomContent.args = {
       <p>Nouvel employé créé 😁</p>
     </>
   ),
-  /*onClose: () => {
-    CustomContent.args.display = false;
-  },*/
 };

@@ -38,3 +38,58 @@
     width: 100px;
   }
 }
+
+// MODAL
+.modalContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  //background-color: rgba(0, 0, 0, 0.192);
+
+  & .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    padding: 0 15px;
+    box-shadow: 5px 5px 5px black;
+    background-color: limegreen;
+    width: 25%;
+    height: 250px;
+
+    & .closeModalBtn {
+      position: absolute;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      width: 70px;
+      height: 70px;
+      border: solid 5px white;
+      background-color: limegreen;
+      color: white;
+      cursor: pointer;
+      top: -10%;
+      right: 50%;
+      transform: translateX(50%);
+      font-size: 35px;
+    }
+
+    & .modalContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: center;
+      color: white;
+
+      & h1 {
+        color: white;
+      }
+    }
+  }
+}

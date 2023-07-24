@@ -1,17 +1,32 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const Modal = ({ onClose, children, display }) => {
+const Modal = ({
+  onClose,
+  children,
+  display,
+  className,
+  containerClassName,
+  modalClassName,
+  closeButtonClassName,
+}) => {
   if (!display) {
     return null;
   }
+  const modalContainerClasses = `${styles.modalContainer} ${
+    containerClassName || ""
+  }`;
+  const modalClasses = `${styles.modal} ${modalClassName || ""}`;
+  const closeButtonClasses = `${styles.closeModalBtn} ${
+    closeButtonClassName || ""
+  }`;
   return (
-    <div className={styles.modalContainer}>
-      <div className={styles.modal}>
-        <button className={styles.closeModalBtn} onClick={onClose}>
-          X
+    <div className={modalContainerClasses}>
+      <div className={modalClasses}>
+        <button className={closeButtonClasses} onClick={onClose}>
+          &#10006;
         </button>
-        <div>{children}</div>
+        <div className={className}>{children}</div>
       </div>
     </div>
   );
