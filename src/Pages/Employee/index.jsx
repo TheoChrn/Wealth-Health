@@ -15,7 +15,6 @@ import styles from "./styles.module.scss";
 
 const Employee = () => {
   const data = useSelector((state) => state.employees.employeesData);
-  console.log(data);
 
   const headCells = [
     { id: "firstName", label: "First Name" },
