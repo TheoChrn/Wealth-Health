@@ -10,14 +10,6 @@ export default {
   build: {
     cssCodeSplit: true,
   },
-  rollupOptions: {
-    external: ['react', 'react-dom', 'react-select'],
-    output: {
-      globals: {
-        react: 'React',
-      },
-    },
-  },
 }
 
 
