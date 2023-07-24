@@ -15,7 +15,6 @@ import styles from "./styles.module.scss";
 
 const Employee = () => {
   const data = useSelector((state) => state.employees.employeesData);
-  console.log(data);
 
   const headCells = [
     { id: "firstName", label: "First Name" },
@@ -83,10 +82,7 @@ const Employee = () => {
         </TableHead>
         <TableBody>
           {sortedData.map((data, index) => {
-            console.log(data);
             const { id, ...rowData } = data;
-            console.log(data);
-            console.log(id);
             return (
               <TableRow key={index}>
                 {Object.keys(rowData).map((key) => (
