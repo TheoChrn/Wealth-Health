@@ -82,10 +82,7 @@ const Employee = () => {
         </TableHead>
         <TableBody>
           {sortedData.map((data, index) => {
-            console.log(data);
             const { id, ...rowData } = data;
-            console.log(data);
-            console.log(id);
             return (
               <TableRow key={index}>
                 {Object.keys(rowData).map((key) => (

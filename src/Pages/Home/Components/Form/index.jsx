@@ -164,8 +164,7 @@ const Form = () => {
       setDisplayModal(true);
       reset();
     } else {
-      console.log(formData);
-      console.log("Impossible d'envoyer tous les champs ne sont pas remplis");
+      return;
     }
   };
 
