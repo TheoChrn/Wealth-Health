@@ -11,7 +11,7 @@ export default {
     cssCodeSplit: true,
   },
   rollupOptions: {
-    external: ['react', 'react-router-dom'],
+    external: ['react', 'react-dom'],
     output: {
       globals: {
         react: 'React',
