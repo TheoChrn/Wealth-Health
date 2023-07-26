@@ -6,7 +6,6 @@ import CustomSelect from "../Select";
 import { setEmployeesData } from "../../../../features/employees.slice";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-//import Modal from "../Modal/index";
 import { Modal } from "volturuss-hrnet-react-modal";
 
 const Form = () => {
@@ -22,7 +21,7 @@ const Form = () => {
     todayDate.getDate()
   );
   const selectedStartDate = todayDate;
-  const replaceNumbers = /[^A-zÀ-ú]/g;
+  const replaceNumbers = /[^A-zÀ-ú ]/g;
   const replaceLetters = /[^0-9]/g;
   const [formData, setFormData] = useState({
     firstName: "",
@@ -63,6 +62,7 @@ const Form = () => {
       zipCode,
       abbreviation,
     }) {
+      this.id = uuidv4();
       this.firstName = firstName;
       this.lastName = lastName;
       this.startDate = startDate;
@@ -73,13 +73,12 @@ const Form = () => {
       this.state = state;
       this.zipCode = zipCode;
       this.abbreviation = abbreviation;
-      this.id = uuidv4();
     }
   }
 
   const reset = () => {
     setFormData({
-      id: "",
+      id: uuidv4(),
       firstName: "",
       lastName: "",
       startDate: "",
@@ -143,6 +142,7 @@ const Form = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     const isValid = isFormDataValid();
     if (isValid) {
       dispatch(

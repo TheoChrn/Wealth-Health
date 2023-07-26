@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +9,21 @@
 
   & h1 {
     text-align: center;
+  }
+
+  .searchBar {
+    margin-left: auto;
+    border: 2px solid limegreen;
+    border-radius: 25px;
+    padding: 10px 15px;
+    width: 15%;
+    &::placeholder {
+      color: rgb(50, 205, 50);
+      margin-right: 15px;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
   & button {

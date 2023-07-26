@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import { getMonth, getYear } from "date-fns";
 import styles from "./styles.module.scss";

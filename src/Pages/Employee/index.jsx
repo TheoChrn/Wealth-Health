@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Table,
@@ -29,7 +29,9 @@ const Employee = () => {
     { id: "abbreviation", label: "Abbreviation" },
   ];
 
-  const [count, setCount] = useState(data.length);
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+  const [count, setCount] = useState(filteredData.length);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [order, setOrder] = useState("asc");
@@ -44,23 +46,59 @@ const Employee = () => {
     setPage(0);
   };
 
-  const rows = data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
-
   const handleSort = (property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
 
-  const sortedData = rows.sort((a, b) => {
+  useEffect(() => {
+    const updatedFilteredData = data.filter((e) => {
+      for (const [, value] of Object.entries(e)) {
+        if (
+          value
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .includes(search)
+        ) {
+          return true;
+        }
+      }
+      return false;
+    });
+    setFilteredData(updatedFilteredData);
+    setCount(updatedFilteredData.length);
+    setPage(0);
+  }, [search]);
+
+  const sortedData = filteredData.sort((a, b) => {
     const isAsc = order === "asc";
     if (a[orderBy] < b[orderBy]) return isAsc ? -1 : 1;
     if (a[orderBy] > b[orderBy]) return isAsc ? 1 : -1;
     return 0;
   });
+
+  const rows = sortedData.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
+
   return (
     <div id="employee-div" className={styles.container}>
       <h1>Current Employees</h1>
+      <input
+        placeholder="Type to search an employee..."
+        className={styles.searchBar}
+        onChange={(e) => {
+          setSearch(
+            e.target.value
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/\p{Diacritic}/gu, "")
+          );
+        }}
+      ></input>
       <Table>
         <TableHead>
           <TableRow>
@@ -81,7 +119,7 @@ const Employee = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortedData.map((data, index) => {
+          {rows.map((data, index) => {
             const { id, ...rowData } = data;
             return (
               <TableRow key={index}>
@@ -100,11 +138,12 @@ const Employee = () => {
               onPageChange={handleChangePage}
               rowsPerPage={rowsPerPage}
               onRowsPerPageChange={handleChangeRowsPerPage}
-              rowsPerPageOptions={[10, 25, 50]}
+              rowsPerPageOptions={[5, 10, 15]}
             />
           </TableRow>
         </TableFooter>
       </Table>
+      {filteredData.length === 0 && <span>Aucunes données trouvées</span>}
       <button>
         <NavLink to="/">Home</NavLink>
       </button>
