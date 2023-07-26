@@ -74,9 +74,18 @@ const Employee = () => {
 
   const sortedData = filteredData.sort((a, b) => {
     const isAsc = order === "asc";
-    if (a[orderBy] < b[orderBy]) return isAsc ? -1 : 1;
-    if (a[orderBy] > b[orderBy]) return isAsc ? 1 : -1;
-    return 0;
+    const orderByValueA = a[orderBy];
+    const orderByValueB = b[orderBy];
+
+    if (orderBy === "dateOfBirth" || orderBy === "startDate") {
+      const dateA = orderByValueA?.split("-")[2];
+      const dateB = orderByValueB?.split("-")[2];
+      return isAsc ? dateA - dateB : dateB - dateA;
+    }
+
+    return isAsc
+      ? (orderByValueA || "").localeCompare(orderByValueB || "")
+      : (orderByValueB || "").localeCompare(orderByValueA || "");
   });
 
   const rows = sortedData.slice(
