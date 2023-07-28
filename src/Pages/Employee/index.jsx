@@ -32,6 +32,7 @@ const Employee = () => {
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState(data);
   const [count, setCount] = useState(filteredData.length);
+  const [sortedData, setSortedData] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [order, setOrder] = useState("asc");
@@ -72,21 +73,25 @@ const Employee = () => {
     setPage(0);
   }, [search]);
 
-  const sortedData = filteredData.sort((a, b) => {
-    const isAsc = order === "asc";
-    const orderByValueA = a[orderBy];
-    const orderByValueB = b[orderBy];
+  useEffect(() => {
+    const sortedArray = [...filteredData].sort((a, b) => {
+      const isAsc = order === "asc";
+      const orderByValueA = a[orderBy];
+      const orderByValueB = b[orderBy];
 
-    if (orderBy === "dateOfBirth" || orderBy === "startDate") {
-      const dateA = orderByValueA?.split("-")[2];
-      const dateB = orderByValueB?.split("-")[2];
-      return isAsc ? dateA - dateB : dateB - dateA;
-    }
+      if (orderBy === "dateOfBirth" || orderBy === "startDate") {
+        const dateA = orderByValueA?.split("-")[2];
+        const dateB = orderByValueB?.split("-")[2];
+        return isAsc ? dateA - dateB : dateB - dateA;
+      }
 
-    return isAsc
-      ? (orderByValueA || "").localeCompare(orderByValueB || "")
-      : (orderByValueB || "").localeCompare(orderByValueA || "");
-  });
+      return isAsc
+        ? (orderByValueA || "").localeCompare(orderByValueB || "")
+        : (orderByValueB || "").localeCompare(orderByValueA || "");
+    });
+
+    setSortedData(sortedArray);
+  }, [filteredData, order, orderBy]);
 
   const rows = sortedData.slice(
     page * rowsPerPage,
