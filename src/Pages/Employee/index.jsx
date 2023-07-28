@@ -108,50 +108,52 @@ const Employee = () => {
           );
         }}
       ></input>
-      <Table>
-        <TableHead>
-          <TableRow>
-            {headCells.map((cell) => (
-              <TableCell
-                key={cell.id}
-                sortDirection={orderBy === cell.id ? order : false}
-              >
-                <TableSortLabel
-                  active={orderBy === cell.id}
-                  direction={orderBy === cell.id ? order : "asc"}
-                  onClick={() => handleSort(cell.id)}
+      <div className={styles.tableContainer}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {headCells.map((cell) => (
+                <TableCell
+                  key={cell.id}
+                  sortDirection={orderBy === cell.id ? order : false}
                 >
-                  {cell.label}
-                </TableSortLabel>
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((data, index) => {
-            const { id, ...rowData } = data;
-            return (
-              <TableRow key={index}>
-                {Object.keys(rowData).map((key) => (
-                  <TableCell key={key}>{rowData[key]}</TableCell>
-                ))}
-              </TableRow>
-            );
-          })}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              count={count}
-              page={page}
-              onPageChange={handleChangePage}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              rowsPerPageOptions={[5, 10, 15]}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
+                  <TableSortLabel
+                    active={orderBy === cell.id}
+                    direction={orderBy === cell.id ? order : "asc"}
+                    onClick={() => handleSort(cell.id)}
+                  >
+                    {cell.label}
+                  </TableSortLabel>
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((data, index) => {
+              const { id, ...rowData } = data;
+              return (
+                <TableRow key={index}>
+                  {Object.keys(rowData).map((key) => (
+                    <TableCell key={key}>{rowData[key]}</TableCell>
+                  ))}
+                </TableRow>
+              );
+            })}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                count={count}
+                page={page}
+                onPageChange={handleChangePage}
+                rowsPerPage={rowsPerPage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                rowsPerPageOptions={[5, 10, 15]}
+              />
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </div>
       {filteredData.length === 0 && <span>Aucunes données trouvées</span>}
       <button>
         <NavLink to="/">Home</NavLink>

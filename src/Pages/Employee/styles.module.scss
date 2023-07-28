@@ -1,5 +1,6 @@
 .container {
   position: relative;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,11 +13,10 @@
   }
 
   .searchBar {
-    margin-left: auto;
     border: 2px solid limegreen;
     border-radius: 25px;
     padding: 10px 15px;
-    width: 15%;
+    width: 200px;
     &::placeholder {
       color: rgb(50, 205, 50);
       margin-right: 15px;
@@ -32,5 +32,13 @@
       text-decoration: none;
       color: inherit;
     }
+  }
+
+  & .tableContainer {
+    overflow-y: auto;
+  }
+
+  & .tablePagination {
+    justify-content: flex-end;
   }
 }
